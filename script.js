@@ -103,3 +103,89 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+// BOLETOS
+let cart = [];
+
+window.onload = () => generateTickets();
+
+let soldTickets = []; // ← aquí pones los vendidos
+
+function generateTickets() {
+    const grid = document.getElementById("grid");
+
+    for (let i = 1; i <= 200; i++) {
+        const div = document.createElement("div");
+        div.className = "ticket";
+        div.innerText = i;
+
+        // 🔴 Si está vendido
+        if (soldTickets.includes(i)) {
+            div.classList.add("sold");
+        } else {
+            div.onclick = () => toggleTicket(i, div);
+        }
+
+        grid.appendChild(div);
+    }
+}
+
+function toggleTicket(num, el) {
+    if (!cart.includes(num)) {
+        cart.push(num);
+        el.classList.add("selected");
+    } else {
+        cart = cart.filter(n => n !== num);
+        el.classList.remove("selected");
+    }
+
+    updateCartUI();
+}
+
+function updateCartUI() {
+    renderCart();
+    document.getElementById("cart-count").innerText = cart.length;
+}
+
+function renderCart() {
+    const list = document.getElementById("cart-list");
+    list.innerHTML = "";
+
+    cart.forEach(n => {
+        const li = document.createElement("li");
+        li.innerHTML = `${n} <button onclick="removeItem(${n})">x</button>`;
+        list.appendChild(li);
+    });
+
+    document.getElementById("total").innerText = cart.length * 200;
+}
+
+function removeItem(num) {
+    cart = cart.filter(n => n !== num);
+    document.querySelectorAll(".ticket").forEach(el => {
+        if (parseInt(el.innerText) === num) {
+            el.classList.remove("selected");
+        }
+    });
+
+    updateCartUI();
+}
+
+function clearCart() {
+    cart = [];
+    document.querySelectorAll(".ticket").forEach(el => el.classList.remove("selected"));
+    updateCartUI();
+}
+
+function toggleCart() {
+    const panel = document.getElementById("cart-panel");
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+}
+
+function sendWhatsApp() {
+    if (cart.length === 0) return;
+
+    const msg = `Quiero estos boletos:\n${cart.join(", ")}\nTotal: $${cart.length * 200}`;
+
+    window.open(`https://wa.me/5212221106016?text=${encodeURIComponent(msg)}`);
+}
