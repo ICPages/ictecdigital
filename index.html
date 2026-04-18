@@ -3,481 +3,369 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO TITLE (CLAVE) -->
-    <title>Servicio Técnico, Desarrollo Web y Reparación de PC en Guerrero | IC Tecnología Digital</title>
-    <!-- META DESCRIPTION (CLAVE PARA CTR) -->
-    <meta name="description" content="Servicio técnico profesional, reparación de computadoras, desarrollo web, diseño digital y soporte remoto en Guerrero. Optimiza tu equipo o crea tu sitio web con expertos.">
-    <!-- PALABRAS CLAVE -->
-    <meta name="keywords" content="servicio técnico, reparación de computadoras, desarrollo web, diseño web, soporte remoto, armado de PC, reparación de celulares, Guerrero, México">
-    <!-- AUTOR -->
-    <meta name="author" content="IC Tecnología Digital">
-    <!-- INDEXACIÓN -->
-    <meta name="robots" content="index, follow">
-    <!-- GEO SEO (MUY IMPORTANTE PARA POSICIONAR LOCAL) -->
-    <meta name="geo.region" content="MX-GRO">
-    <meta name="geo.placename" content="Guerrero, México">
-    <meta name="geo.position" content="17.2060;-100.4330">
-    <meta name="ICBM" content="17.2060, -100.4330">
-    <!-- CANONICAL -->
-    <link rel="canonical" href="https://ictecdigital.com/">
-    <!-- FAVICON -->
-    <link rel="icon" type="image/x-icon" href="Logo.webp">
-    <!-- OPEN GRAPH (FACEBOOK / WHATSAPP) -->
-    <meta property="og:title" content="IC Tecnología Digital | Servicio Técnico y Desarrollo Web">
-    <meta property="og:description" content="Soluciones en tecnología: reparación de PC, desarrollo web, diseño digital y soporte remoto en México.">
-    <meta property="og:image" content="Preview.webp">
-    <meta property="og:url" content="https://ictecdigital.com/">
-    <meta property="og:type" content="website">
-    <!-- TWITTER -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="IC Tecnología Digital">
-    <meta name="twitter:description" content="Servicio técnico, desarrollo web y soluciones digitales.">
-    <meta name="twitter:image" content="Preview.webp">
-    <!-- SCHEMA ORG (ULTRA IMPORTANTE) -->
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "IC Tecnología Digital",
-  "image": "Preview.webp",
-  "url": "https://ictecdigital.com",
-  "telephone": "+522221106016",
-  "areaServed": [
-    {
-      "@type": "City",
-      "name": "Atoyac de Álvarez"
-    },
-    {
-      "@type": "City",
-      "name": "San Jerónimo de Juárez"
-    },
-    {
-      "@type": "City",
-      "name": "Técpan de Galeana"
-    },
-    {
-      "@type": "City",
-      "name": "Heroica Puebla de Zaragoza"
-    },
-    {
-      "@type": "Country",
-      "name": "México"
-    }
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "MX"
-  },
-  "description": "Servicio técnico, reparación de computadoras, desarrollo web y soporte remoto en México."
-}
-    </script>
-    <!-- GOOGLE FONTS -->
+
+    <title>Sorteo Gamer HP Victus | IC Tecnología Digital</title>
+
+    <meta name="description" content="Participa en el sorteo de una HP Victus con Ryzen 7 y RTX 4050. Solo 200 boletos disponibles.">
+
+    <link rel="icon" href="Logo.webp">
+
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <!-- BOOTSTRAP -->
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- CSS -->
+
     <link rel="stylesheet" href="estilos.css">
+
+    <!-- SOLO estilos del sorteo -->
+    <style>
+    .tickets-grid {
+        display: grid;
+        gap: 8px;
+    }
+
+    /* 📱 MÓVIL: 10 columnas */
+    @media (max-width: 768px) {
+        .tickets-grid {
+            grid-template-columns: repeat(10, 1fr);
+        }
+    }
+
+    /* 💻 DESKTOP: 20 columnas */
+    @media (min-width: 769px) {
+        .tickets-grid {
+            grid-template-columns: repeat(20, 1fr);
+        }
+    }
+
+    .ticket {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        border: 1px solid #092a62;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 12px;
+        transition: 0.2s ease;
+    }
+
+    .ticket:hover {
+        background-color: #092a62;
+        color: white;
+    }
+
+    .ticket.selected {
+        background-color: #77b800;
+        color: white;
+        border-color: #77b800;
+    }
+
+    .ticket.sold {
+    background-color: red;
+    color: white;
+    cursor: not-allowed;
+}
+
+    /* BOTÓN FLOTANTE */
+#cart-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #092a62;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1000;
+    box-shadow: 0 0 10px #77b800;
+}
+
+/* BADGE */
+#cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #77b800;
+    color: white;
+    font-size: 12px;
+    padding: 4px 7px;
+    border-radius: 50%;
+}
+
+/* PANEL */
+#cart-panel {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 260px;
+    display: none;
+    z-index: 1000;
+}
+</style>
 
 </head>
 
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar fixed-top">
-        <div class="container d-flex justify-content-between align-items-center">
-    
-            <!-- Logo -->
-            <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-                <img src="Logo.webp" alt="IC TecDigital"
-                    style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%; margin-right: 8px;">
-                IC TecDigital
-            </a>
-    
-            <!-- Menú siempre visible -->
-            <ul class="navbar-nav d-flex flex-row gap-3">
-                <li class="nav-item">
-                    <a class="nav-link" href="proximamente.html">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="proximamente.html">Tienda</a>
-                </li>
-            </ul>
-    
-        </div>
-    
-        <div class="navbar-gradient-line"></div>
-    </nav>
+<!-- NAVBAR -->
+<nav class="navbar fixed-top">
+    <div class="container d-flex justify-content-between align-items-center">
+        <!-- Logo -->
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+            <img src="Logo.webp" alt="IC TecDigital"
+                style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%; margin-right: 8px;">
+            IC TecDigital
+        </a>
+        <!-- Menú siempre visible -->
+        <ul class="navbar-nav d-flex flex-row gap-3">
+            <li class="nav-item">
+                <a class="nav-link" href="proximamente.html">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="proximamente.html">Tienda</a>
+            </li>
+        </ul>
+    </div>
+    <div class="navbar-gradient-line"></div>
+</nav>
 
-    <!-- Hero -->
-    <section id="hero" class="d-flex align-items-center text-center text-white">
-        <div class="overlay"></div>
-        <div class="container position-relative z-1">
-            <h1 class="display-4 fw-bold montserrat">IC Tecnología Digital</h1>
-            <p class="lead roboto-mono">Desarrollo web, diseño digital y servicio técnico para que tu tecnología
-                funcione al máximo.</p>
-            <a href="#contacto" class="btn btn-success btn-lg mt-3 montserrat">Cotizar Ahora</a>
-        </div>
-    </section>
+<!-- INTRO -->
+<section class="py-3" style="margin-top:70px;">
+    <div class="container">
+        <div class="row align-items-center">
 
-    <!-- Sobre mí -->
-    <section id="sobre-mi" class="py-3">
-        <div class="container text-center">
-            <h2 class="mb-3 montserrat">Sobre mí</h2>
-            <p class="fs-5 roboto-mono mx-auto">Soy profesional con formación en <strong>Ingeniería Mecatrónica</strong>
-                e
-                <strong>Ingeniería en Sistemas y Tecnologías de la Información</strong>, especializado en el desarrollo
-                de
-                soluciones tecnológicas prácticas e innovadoras.<br>
-                Cuento con experiencia en herramientas como <strong>Arduino IDE</strong>, <strong>IFTTT</strong>,
-                <strong>MultiSim</strong>, <strong>Packet Tracer</strong>, <strong>SolidWorks</strong> y paquetería
-                <strong>Office</strong>,
-                así como en programación con <strong>C</strong> y <strong>C#</strong>, y desarrollo web con
-                <strong>HTML</strong>,
-                <strong>CSS</strong> y <strong>JavaScript</strong>. Esto me permite integrar hardware y software para
-                crear sistemas
-                eficientes y soluciones digitales orientadas a la productividad.
-            </p>
-        </div>
-    </section>
+            <!-- TEXTO -->
+            <div class="col-md-6 text-center text-md-start">
+                <h1 class="mb-3">Sorteo Gamer</h1>
 
-    <!-- Servicios -->
-    <section id="servicios" class="py-3 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-3 orbitron">Servicios</h2>
-            <div class="row g-4 mb-3">
-    
-                <!-- Diseño y multimedia -->
-                <div class="col-md-6 col-lg-4">
-                    <a href="diseno-multimedia.html"
-                        class="service-card p-4 h-100 text-center d-block text-decoration-none">
-                        <i class="bi bi-palette fs-1 mb-3"></i>
-                        <h5 class="montserrat">Diseño y Multimedia</h5>
-                        <p class="roboto-mono">
-                            Creación de contenido visual, edición de video, diseño de flyers y material gráfico para redes
-                            sociales y negocios.
-                        </p>
-                    </a>
-                </div>
-    
-                <!-- Desarrollo web -->
-                <div class="col-md-6 col-lg-4">
-                    <a href="desarrollo-web.html" class="service-card p-4 h-100 text-center d-block text-decoration-none">
-                        <i class="bi bi-code-slash fs-1 mb-3"></i>
-                        <h5 class="montserrat">Desarrollo Web</h5>
-                        <p class="roboto-mono">
-                            Diseño de páginas web, landing pages y tiendas en línea optimizadas para atraer clientes y
-                            mejorar tu presencia digital.
-                        </p>
-                    </a>
-                </div>
-    
-                <!-- Armado y venta de PC -->
-                <div class="col-md-6 col-lg-4">
-                    <a class="service-card p-4 h-100 text-center d-block text-decoration-none">
-                        <i class="bi bi-pc-display fs-1 mb-3"></i>
-                        <h5 class="montserrat">Armado y Venta de PC</h5>
-                        <p class="roboto-mono">
-                            Equipos personalizados para gaming, oficina o diseño, con componentes de calidad y posibilidad
-                            de futuras mejoras.
-                        </p>
-                    </a>
-                </div>
-    
-                <!-- Servicio técnico -->
-                <div class="col-md-6 col-lg-4">
-                    <a href="servicio-tecnico.html" class="service-card p-4 h-100 text-center d-block text-decoration-none">
-                        <i class="bi bi-tools fs-1 mb-3"></i>
-                        <h5 class="montserrat">Servicio Técnico</h5>
-                        <p class="roboto-mono">
-                            Diagnóstico, mantenimiento y reparación de equipos de cómputo, instalación de software y
-                            optimización del sistema.
-                        </p>
-                    </a>
-                </div>
-    
-                <!-- Reparación de celulares -->
-                <div class="col-md-6 col-lg-4">
-                    <a class="service-card p-4 h-100 text-center d-block text-decoration-none">
-                        <i class="bi bi-phone fs-1 mb-3"></i>
-                        <h5 class="montserrat">Reparación de Celulares</h5>
-                        <p class="roboto-mono">
-                            Cambio de pantalla, batería, reparación de fallas y mantenimiento para alargar la vida útil de
-                            tu dispositivo.
-                        </p>
-                    </a>
-                </div>
-    
-                <!-- Soporte remoto -->
-                <div class="col-md-6 col-lg-4">
-                    <a href="soporte-remoto.html" class="service-card p-4 h-100 text-center d-block text-decoration-none">
-                        <i class="bi bi-laptop fs-1 mb-3"></i>
-                        <h5 class="montserrat">Soporte Remoto</h5>
-                        <p class="roboto-mono">
-                            Asistencia a distancia para resolver problemas, instalar programas, configurar sistemas y
-                            optimizar tu equipo.
-                        </p>
-                    </a>
-                </div>
-    
+                <p class="fs-5" style="max-width:600px;">
+                    Participa por una <strong>HP Victus</strong>.<br><br>
+
+                    🎟 200 boletos disponibles a <strong>$200 MXN</strong> cada uno.<br>
+                    🇲🇽 Válido en toda la República Mexicana.<br>
+                    🚚 Envío incluido sin costo adicional.<br>
+                    ⏳ El sorteo se realiza al vender todos los boletos.
+                </p>
             </div>
-        </div>
-    </section>
-    
-    <!-- Productos destacados -->
-    <section id="productos-destacados" class="py-3">
-        <div class="container position-relative">
-    
-            <h2 class="text-center mb-3 orbitron">Productos destacados</h2>
-            <!-- Botón anterior -->
-            <button id="prevBtn" class="carousel-btn start-0">◀</button>
-            <!-- Botón siguiente -->
-            <button id="nextBtn" class="carousel-btn end-0">▶</button>
-    
-            <!-- Carrusel -->
-            <div class="row g-4 mb-3 flex-nowrap overflow-hidden" id="carouselProductos">
-    
-                <!-- ITEM 1 -->
-                <div class="col-md-6 col-lg-4 text-center carousel-item-custom mb-3">
-                    <div class="product-card p-3 h-100">
-                        <img src="PCOficinaEssential.webp" class="img-fluid mb-3">
-                        <h6 class="montserrat"><strong>PC Oficina Essential</strong></h6>
-                        <p class="small">Ideal para tareas, Office y navegación fluida.</p>
-                        <p class="fw-bold">$7,199 MXN</p>
-                    </div>
-                </div>
-                <!-- ITEM 2 -->
-                <div class="col-md-6 col-lg-4 text-center carousel-item-custom mb-3">
-                    <div class="product-card p-3 h-100">
-                        <img src="PCProIntegrada.webp" class="img-fluid mb-3">
-                        <h6 class="montserrat"><strong>PC Pro Integrada</strong></h6>
-                        <p class="small">Perfecta para programación, diseño ligero y gaming casual.</p>
-                        <p class="fw-bold">$11,499 MXN</p>
-                    </div>
-                </div>
-                <!-- ITEM 3 -->
-                <div class="col-md-6 col-lg-4 text-center carousel-item-custom mb-3">
-                    <div class="product-card p-3 h-100">
-                        <img src="PCGamerProRTX.webp" class="img-fluid mb-3">
-                        <h6 class="montserrat"><strong>PC Gamer Pro RTX</strong></h6>
-                        <p class="small">Alto rendimiento para gaming, streaming y edición</p>
-                        <p class="fw-bold">$21,199 MXN</p>
-                    </div>
-                </div>
-                <!-- ITEM 4 -->
-                <div class="col-md-6 col-lg-4 text-center carousel-item-custom mb-3">
-                    <div class="product-card p-3 h-100">
-                        <img src="KitGamerCompleto.webp" class="img-fluid mb-3">
-                        <h6 class="montserrat"><strong>Combo Gamecraft Krypton K1000</strong></h6>
-                        <p class="small">Teclado, mouse, audífonos y soporte.</p>
-                        <p class="fw-bold">$1,199 MXN</p>
-                    </div>
-                </div>
-                <!-- ITEM 5 -->
-                <div class="col-md-6 col-lg-4 text-center carousel-item-custom mb-3">
-                    <div class="product-card p-3 h-100">
-                        <img src="SillaGamerErgonómica.webp" class="img-fluid mb-3">
-                        <h6 class="montserrat"><strong>Silla Gamer Ergonómica</strong></h6>
-                        <p class="small">Comodidad para largas sesiones frente a tu computadora.</p>
-                        <p class="fw-bold">$3,199 MXN</p>
-                    </div>
-                </div>
-                <!-- Botón -->
-                <div class="col-md-6 col-lg-4 text-center carousel-item-custom mb-3">
-                    <div class="product-card p-3 h-100" style="align-content: center;">
-                        <h6 class="montserrat"><strong>¿Quieres ver más productos?</strong></h6>
-                        <p class="small">Explora nuestra tienda y conoce todo el catálogo disponible.</p>
-                        <a href="proximamente.html" class="btn btn-success montserrat">Visitar tienda</a>
-                    </div>
-                </div>
-    
-            </div>
-    
-        </div>
-    </section>
 
-    <!-- Artículos populares -->
-    <section id="artículos-populares" class="py-3 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-3 orbitron">Artículos populares</h2>
-    
-            <div class="row g-4 mb-3">
-    
-                <!-- Artículo 1 -->
-                <div class="col-md-4">
-                    <div class="blog-card p-3 h-100">
-                        <img src="PCIdeal2026.webp" class="img-fluid mb-3" alt="¿Cómo elegir la PC ideal en 2026?">
-                        <h5 class="montserrat">¿Cómo elegir la PC ideal en 2026?</h5>
-                        <p class="roboto-mono">
-                            Aprende a seleccionar la computadora perfecta según tu uso: oficina, gaming o programación,
-                            evitando gastar de más.
-                        </p>
-                        <a  class="btn btn-success montserrat">Leer artículo</a>
-                    </div>
-                </div>  
-                <!-- Artículo 2 -->
-                <div class="col-md-4">
-                    <div class="blog-card p-3 h-100">
-                        <img src="WindowsvsLinuxvsMacOS.webp" class="img-fluid mb-3" alt="Windows vs Linux vs MacOS">
-                        <h5 class="montserrat">Windows vs Linux vs MacOS</h5>
-                        <p class="roboto-mono">
-                            Comparamos los sistemas operativos más usados para ayudarte a elegir el mejor según tu
-                            trabajo, rendimiento y presupuesto.
-                        </p>
-                        <a  class="btn btn-success montserrat">Leer artículo</a>
-                    </div>
-                </div>  
-                <!-- Artículo 3 -->
-                <div class="col-md-4">
-                    <div class="blog-card p-3 h-100">
-                        <img src="HerramientasVidaPC.webp" class="img-fluid mb-3"
-                            alt="5 herramientas clave para alargar la vida de tu PC">
-                        <h5 class="montserrat">5 herramientas clave para alargar la vida de tu PC</h5>
-                        <p class="roboto-mono">
-                            Descubre programas esenciales para limpiar, optimizar y mantener tu equipo rápido y
-                            funcionando como nuevo.
-                        </p>
-                        <a  class="btn btn-success montserrat">Leer artículo</a>
-                    </div>
-                </div>
-    
+            <!-- IMAGEN -->
+            <div class="col-md-6 text-center">
+                <img src="HP2.webp" class="img-fluid" style="max-width: 400px;">
             </div>
 
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Contacto -->
-    <section id="contacto" class="py-3">
-        <div class="container">
-            <h2 class="text-center mb-3 montserrat">Contacto</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <p><i class="bi bi-whatsapp"></i> <strong>WhatsApp: </strong>
-                        <a href="https://wa.me/522221106016?text=¡Hola%20*IC%20TecDigital*!%20Me%20gustaría%20recibir%20más%20información%20sobre:%20"
-                            target="_blank">222 110 6016</a>
-                        <br>
-                        <i class="bi bi-facebook"></i> <strong>Facebook: </strong>
-                        <a href="https://www.facebook.com/share/1Ayj7ThyyN/" target="_blank">IC TecDigital</a>
-                        <br>
-                        <i class="bi bi-tiktok"></i> <strong>TikTok: </strong>
-                        <a href="https://www.tiktok.com/@ic.tecdigital?_r=1&_t=ZS-953eSj8oIxl"
-                            target="_blank">@ic.tecdigital</a>
-                    </p>
-                    <p><i class="bi bi-clock"></i> <strong>Horario de atención:</strong><br>
-                        Domingo: 11:00 AM a 17:00 PM.<br>
-                        Lunes a Viernes: 09:00 AM a 19:00 PM.<br>
-                        Sábado: no disponible.</p>
-                    <p><i class="bi bi-geo"></i> <strong>Ubicaciones de atención presencial:</strong><br>
-                        <a href="https://maps.app.goo.gl/Ei2r1qG2VxdfkQon9" target="_blank">Atoyac de Álvarez,
-                            Guerrero</a>.<br>
-                        <a href="https://maps.app.goo.gl/LmSR2ivdJGTfsHJw7" target="_blank">San Jerónimo de Juárez,
-                            Guerrero</a>.<br>
-                        <a href="https://maps.app.goo.gl/RJgdik3ac1kwPpaT7" target="_blank">Técpan de Galeana,
-                            Guerrero</a>.<br>
-                        <a href="hhttps://maps.app.goo.gl/wJYu2kcZ7MqCePZr9" target="_blank">Heroica Puebla de Zaragoza,
-                            Puebla</a>.
-                    </p>
-                    <p><i class="bi bi-headset"></i> <strong>Servicios remotos:</strong><br>
-                        Disponibles para toda la <a href="https://maps.app.goo.gl/T95iGSThH4wPwabB7"
-                            target="_blank">República Mexicana</a>.</p>
-                </div>
-                <!-- Formulario -->
-                <div class="col-md-6">
-                    <h4 class="text-center mb-3">¡Envíanos tu cotización!</h4>
-                    <form id="form-cotizacion">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="nombre" required placeholder="Nombre completo">
-                            </div>
-                            <div class="mb-3">
-                                <input type="email" class="form-control" id="correo" placeholder="Correo (opcional)">
-                            </div>
-                            <div class="mb-3">
-                                <select class="form-select" id="servicio" required>
-                                    <option value="" selected>Selecciona un servicio</option>
-                                    <option value="Armado y Venta de PC">Armado y Venta de PC</option>
-                                    <option value="Desarrollo Web">Desarrollo Web</option>
-                                    <option value="Diseño y Multimedia">Diseño y Multimedia</option>
-                                    <option value="Reparación de Celulares">Reparación de Celulares</option>
-                                    <option value="Servicio Técnico">Servicio Técnico</option>
-                                    <option value="Soporte Remoto">Soporte Remoto</option>
-                                    <option value="Otro servicio">Otro servicio</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <textarea class="form-control" id="mensaje" rows="3"placeholder="Explica el servicio de tu interés o necesidades..."></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-success montserrat">
-                                Cotizar por WhatsApp
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="text-white py-3">
-        <div class="container">
-            <div class="row justify-content-center text-start">
-                <!-- Logo (GRANDE Y CIRCULAR) -->
-                <div class="col-md-3 mb-3 d-flex justify-content-center">
-                    <img src="Logo.webp" alt="IC Tecnología Digital"
-                        style="width: 160px; height: 160px; object-fit: cover; border-radius: 50%;">
-                </div>
-                <!-- Nombre + Info -->
-                <div class="col-md-4 mb-3">
-                    <h4 class="fw-bold">IC TecDigital</h4>
-                    <p>
-                        Soluciones en tecnología, desarrollo web, soporte técnico y venta de equipos.
-                        Impulsamos tus proyectos con herramientas digitales modernas.
-                    </p>
-                </div>
-                <!-- Sitios de interés -->
-                <div class="col-md-3 mb-3">
-                    <h5 class="fw-bold">Sitios de interés</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="proximamente.html">Blog</a></li>
-                        <li><a href="proximamente.html">Tienda</a></li>
-                    </ul>
-                </div>
-                <!-- Contacto -->
-                <div class="col-md-2 mb-3">
-                    <h5 class="fw-bold">Contacto</h5>
-                    <p>
-                        <i class="bi bi-whatsapp"></i>
-                        <a href="https://wa.me/522221106016?text=¡Hola%20*IC%20TecDigital*!%20Me%20gustaría%20recibir%20más%20información%20sobre:%20"
-                            target="_blank">
-                            222 110 6016
-                        </a>
-                        <br>
-                        <i class="bi bi-facebook"></i>
-                        <a href="https://www.facebook.com/share/1Ayj7ThyyN/" target="_blank">
-                            IC TecDigital
-                        </a>
-                        <br>
-                        <i class="bi bi-tiktok"></i>
-                        <a href="https://www.tiktok.com/@ic.tecdigital?_r=1&_t=ZS-953eSj8oIxl" target="_blank">
-                            @ic.tecdigital
-                        </a>
+<!-- PREMIOS -->
+<section class="py-3 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-3 orbitron">Premios</h2>
+
+        <div class="row g-4 text-center">
+
+            <div class="col-md-4">
+                <div class="blog-card p-3 h-100 border border-warning">
+                    <img src="HP1.webp" class="img-fluid mb-2">
+                    <h5>🥇 HP Victus</h5>
+                    <p class="small text-start">
+                        <i class="bi bi-cpu"></i> AMD Ryzen 7 7445HS<br>
+                        <i class="bi bi-gpu-card"></i> Nvidia GeForce RTX 4050<br>
+                        <i class="bi bi-memory"></i> 16GB DDR5<br>
+                        <i class="bi bi-hdd"></i> 512GB SSD<br>
+                        <i class="bi bi-display"></i> 15.6" 144Hz 1080P Full HD IPS<br>
+                        <i class="bi bi-windows"></i> Windows 11 Home
                     </p>
                 </div>
             </div>
-            <div class="text-center">
-                <p><a href="aviso-privacidad.html">Aviso de Privacidad</a> | <a href="politica-cookies.html">Política de
-                        Cookies</a> | <a href="terminos-servicio.html">Términos de Servicio</a><br>
-                    &copy; 2026 <a href="#">IC Tecnología Digital</a>. Todos los derechos reservados. Sitio desarrollado por
-                    <a href="desarrollo-web.html">IC Pages</a>.</p>
+
+            <div class="col-md-4">
+                <div class="blog-card p-3 h-100 border border-secondary">
+                    <img src="Silla.webp" class="img-fluid mb-2">
+                    <h5>🥈 Silla Gamer</h5>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="blog-card p-3 h-100" style="border:2px solid #cd7f32;">
+                    <img src="Kit.webp" class="img-fluid mb-2">
+                    <h5>🥉 Kit Gamer</h5>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- BOLETOS -->
+<section class="py-3">
+    <div class="container">
+        <h2 class="text-center mb-3 orbitron">Selecciona tus boletos</h2>
+
+        <div id="grid" class="tickets-grid"></div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-3 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-3 orbitron">Preguntas frecuentes</h2>
+
+        <div class="accordion">
+
+            <div class="accordion-item">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f1">
+                    ¿Cómo funciona el sorteo?
+                </button>
+                <div id="f1" class="collapse" data-bs-parent=".accordion">
+                    <div class="accordion-body">
+                        Seleccionas tus boletos disponibles, realizas el pago y quedas registrado con esos números.
+                        Cada boleto tiene la misma probabilidad de ganar y puedes adquirir uno o varios.
+                        El proceso es sencillo y se confirma directamente por WhatsApp.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f2">
+                    ¿Cuándo se realiza el sorteo?
+                </button>
+                <div id="f2" class="collapse" data-bs-parent=".accordion">
+                    <div class="accordion-body">
+                        El sorteo se realiza únicamente cuando los 200 boletos han sido vendidos en su totalidad.
+                        Una vez alcanzado este punto, se anunciará la fecha, hora y dinámica del sorteo para todos los participantes.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f3">
+                    ¿El envío del premio tiene costo?
+                </button>
+                <div id="f3" class="collapse" data-bs-parent=".accordion">
+                    <div class="accordion-body">
+                        No, el envío de los premios está completamente incluido sin costo adicional.
+                        El ganador recibirá su premio en la dirección que proporcione dentro de la República Mexicana.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f4">
+                    ¿Qué pasa si un ganador no responde?
+                </button>
+                <div id="f4" class="collapse" data-bs-parent=".accordion">
+                    <div class="accordion-body">
+                        Se dará un plazo de hasta 3 días para que el ganador responda al contacto.
+                        Durante ese periodo se realizará un intento de contacto por día.
+                        Si no hay respuesta, se procederá a reasignar el premio correspondiente.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f5">
+                    ¿Qué sucede si un premio no es reclamado?
+                </button>
+                <div id="f5" class="collapse" data-bs-parent=".accordion">
+                    <div class="accordion-body">
+    En caso de que un ganador no reclame su premio dentro del plazo establecido, los premios se recorren de posición.
+    Es decir, el segundo lugar pasa a ser primer lugar y el tercer lugar pasa a segundo lugar.
+    Posteriormente, se realiza un nuevo sorteo únicamente para asignar el tercer lugar.
+    Este proceso garantiza que todos los premios sean entregados de forma justa y transparente.
+</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CARRITO -->
+<div id="cart-button" onclick="toggleCart()">
+    <i class="bi bi-cart"></i>
+    <span id="cart-count">0</span>
+</div>
+
+<!-- PANEL CARRITO -->
+<div id="cart-panel" class="blog-card p-3">
+    <h6 class="orbitron">🛒 Boletos</h6>
+
+    <ul id="cart-list" class="small"></ul>
+
+    <p><strong>Total:</strong> $<span id="total">0</span></p>
+
+    <div class="d-flex gap-2">
+        <button class="btn btn-danger btn-sm w-50" onclick="clearCart()">Vaciar</button>
+        <button class="btn btn-success btn-sm w-50" onclick="sendWhatsApp()">Pagar</button>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-white py-3">
+    <div class="container">
+        <div class="row justify-content-center text-start">
+            <!-- Logo (GRANDE Y CIRCULAR) -->
+            <div class="col-md-3 mb-3 d-flex justify-content-center">
+                <img src="Logo.webp" alt="IC Tecnología Digital"
+                    style="width: 160px; height: 160px; object-fit: cover; border-radius: 50%;">
+            </div>
+            <!-- Nombre + Info -->
+            <div class="col-md-4 mb-3">
+                <h4 class="fw-bold">IC TecDigital</h4>
+                <p>
+                    Soluciones en tecnología, desarrollo web, soporte técnico y venta de equipos.
+                    Impulsamos tus proyectos con herramientas digitales modernas.
+                </p>
+            </div>
+            <!-- Sitios de interés -->
+            <div class="col-md-3 mb-3">
+                <h5 class="fw-bold">Sitios de interés</h5>
+                <ul class="list-unstyled">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="proximamente.html">Blog</a></li>
+                    <li><a href="proximamente.html">Tienda</a></li>
+                </ul>
+            </div>
+            <!-- Contacto -->
+            <div class="col-md-2 mb-3">
+                <h5 class="fw-bold">Contacto</h5>
+                <p>
+                    <i class="bi bi-whatsapp"></i>
+                    <a href="https://wa.me/522221106016?text=¡Hola%20*IC%20TecDigital*!%20Me%20gustaría%20recibir%20más%20información%20sobre:%20"
+                        target="_blank">
+                        222 110 6016
+                    </a>
+                    <br>
+                    <i class="bi bi-facebook"></i>
+                    <a href="https://www.facebook.com/share/1Ayj7ThyyN/" target="_blank">
+                        IC TecDigital
+                    </a>
+                    <br>
+                    <i class="bi bi-tiktok"></i>
+                    <a href="https://www.tiktok.com/@ic.tecdigital?_r=1&_t=ZS-953eSj8oIxl" target="_blank">
+                        @ic.tecdigital
+                    </a>
+                </p>
             </div>
         </div>
-    </footer>
+        <div class="text-center">
+            <p><a href="aviso-privacidad.html">Aviso de Privacidad</a> | <a href="politica-cookies.html">Política de Cookies</a> | <a href="terminos-servicio.html">Términos de Servicio</a><br>
+                &copy; 2026 <a href="index.html">IC Tecnología Digital</a>. Todos los derechos reservados. Sitio desarrollado por <a href="desarrollo-web.html">IC Pages</a>.</p>
+        </div>
+    </div>
+</footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 </body>
-
 </html>
